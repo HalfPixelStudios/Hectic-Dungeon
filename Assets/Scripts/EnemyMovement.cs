@@ -5,11 +5,16 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour {
 
     public GameObject movePoint;
-    void Start() {
-        
+    [Range(0.001f, 1f)] public float move_speed;
+    bool facing = true; //1 - facing right, 0 facing left
+
+    void Awake() {
+        movePoint.transform.parent = null;
     }
 
     void Update() {
         
     }
+
+
 }
