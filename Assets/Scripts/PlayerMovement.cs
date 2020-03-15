@@ -30,11 +30,13 @@ public class PlayerMovement : MonoBehaviour {
             int x = 0; int y = 0;
             if (Input.GetButtonDown("Up")) { y = 1; }
             else if (Input.GetButtonDown("Down")) { y = -1; }
-            else if (Input.GetButtonDown("Left")) { x = -1; }
-            else if (Input.GetButtonDown("Right")) { x = 1; }
-
+            else if (Input.GetButtonDown("Left")) { x = -1; facing = false; }
+            else if (Input.GetButtonDown("Right")) { x = 1; facing = true; }
 
             movePoint.transform.position += new Vector3(x,y,0);
+
+            //flip playser sprite based on input
+            info.sr.flipX = !facing;
         }
 
 
