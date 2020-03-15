@@ -6,27 +6,15 @@ public class PlayerInfo : MonoBehaviour {
 
     public Animator anim;
     public SpriteRenderer sr;
-
-    //Input stuff
-    //PlayerInputActions inputActions;
+    public GameObject interacter;
     [Range(0f, 1f)] public float inputThreshold;
-    //public Vector2 moveInput;
 
 
     void Awake() {
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
-
-        //inputActions = new PlayerInputActions();
-        //inputActions.PlayerControls.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        interacter = GetComponentInChildren<PlayerInteracter>().gameObject;
     }
 
-    /*
-    private void OnEnable() {
-        inputActions.Enable();
-    }
-    private void OnDisable() {
-        inputActions.Disable();
-    }
-    */
+
 }

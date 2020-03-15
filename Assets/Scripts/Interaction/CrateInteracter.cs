@@ -20,7 +20,7 @@ public class CrateInteracter : InteractionHandler {
         }
         
         if (health == 0) {
-            Debug.Log("DropItem");
+            isCollision = false; //after crate dies, you can walk over it
         }
 
     }

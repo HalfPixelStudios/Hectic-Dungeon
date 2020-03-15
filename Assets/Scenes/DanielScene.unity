@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 218920140}
   - component: {fileID: 218920139}
   - component: {fileID: 218920138}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: interacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,6 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115742157ca81dc48afb82bedb058086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCollision: 0
   health: 2
 --- !u!50 &1762287965
 Rigidbody2D:
@@ -896,6 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82d2e82a4cfb23e4c9043468e3d804f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floor: {fileID: 0}
 --- !u!1 &2137490708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,4 +1017,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   sr: {fileID: 0}
+  interacter: {fileID: 0}
   inputThreshold: 0.1

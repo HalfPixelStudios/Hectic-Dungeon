@@ -13,9 +13,12 @@ public class PlayerInteracter : MonoBehaviour {
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    public void TriggerInteract(Collider2D collision) {
         if (collision.gameObject.GetComponent<InteractionHandler>() != null) {
             collision.gameObject.GetComponent<InteractionHandler>().OnInteraction();
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision) {
+        TriggerInteract(collision);
     }
 }
