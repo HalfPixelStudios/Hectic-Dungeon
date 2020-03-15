@@ -6,6 +6,8 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="CameraController.cs" t="Include" />
+          <e p="Equip.cs" t="Include" />
+          <e p="Equipment.cs" t="Include" />
           <e p="GlobalContainer.cs" t="Include" />
           <e p="Old" t="Include">
             <e p="BasicMovement.cs" t="Include" />
