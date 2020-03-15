@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
+    public GameObject movePoint;
     void Start() {
         
     }
