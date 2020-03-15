@@ -8,11 +8,11 @@ public class BasicMovement : MonoBehaviour {
     public GameObject movePoint;
     [Range(0.001f, 1f)] public float move_speed;
     
-    void Start() {
+    public virtual void Start() {
         movePoint.transform.parent = null;
     }
 
-    void Update() {
+    public virtual void Update() {
 
         transform.position = Vector2.MoveTowards(transform.position, movePoint.transform.position, move_speed);
         if (Vector2.Distance(transform.position, movePoint.transform.position) <= moveThreshold) {
