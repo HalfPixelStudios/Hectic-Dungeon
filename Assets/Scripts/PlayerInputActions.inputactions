@@ -7,17 +7,17 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "a1a09a2e-7745-4e50-b61e-eb09cc1040e0",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "Aim",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "9f2ca11a-ea6f-46f7-84f5-c5c0156e6c43",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }

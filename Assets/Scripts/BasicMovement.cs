@@ -6,7 +6,7 @@ public class BasicMovement : MonoBehaviour {
 
     static float moveThreshold = 0.05f;
     public GameObject movePoint;
-    [Range(0f, 1f)] public float move_speed;
+    [Range(0.001f, 1f)] public float move_speed;
     
     void Start() {
         movePoint.transform.parent = null;
