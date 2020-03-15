@@ -611,9 +611,9 @@ MonoBehaviour:
   tilePrefab: {fileID: 2503443437899203936, guid: 85ed56ad4d0fd432d83df0f02877607e,
     type: 3}
   tileSprites:
-  - {fileID: 21300000, guid: 5bb76f62546df4be6856faf4c345f3e7, type: 3}
-  - {fileID: 21300000, guid: 5f4319033bf1e42418755f660daffe81, type: 3}
-  - {fileID: 21300000, guid: 945b56584b28d4f7baa30df717567222, type: 3}
+  - {fileID: 21300000, guid: 2b03e8bc3678ee84fb85f86a65499fb9, type: 3}
+  - {fileID: 21300000, guid: 267695d81ed901c4f85e4fa5ff779e68, type: 3}
+  - {fileID: 21300000, guid: 77f9727686a571a4983d994adebc57c2, type: 3}
 --- !u!1 &2137490708
 GameObject:
   m_ObjectHideFlags: 0
