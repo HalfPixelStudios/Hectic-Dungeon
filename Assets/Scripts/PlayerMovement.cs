@@ -4,35 +4,39 @@ using UnityEngine;
 using static GlobalContainer;
 
 
-public class PlayerMovement : BasicMovement {
+public class PlayerMovement : MonoBehaviour {
 
-    Animator anim;
-    SpriteRenderer sr;
+    PlayerInfo info;
+
+    public GameObject movePoint;
+    [Range(0f,1f)] public float moveThreshold;
+    [Range(0.001f, 1f)] public float move_speed;
     bool facing = true; //1 - facing right, 0 facing left
 
-    public override void Start() {
-        base.Start();
+    void Awake() {
 
-        anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
+        info = GetComponentInParent<PlayerInfo>();
+        movePoint.transform.parent = null;
     }
 
-    public override void Update() {
-        base.Update();
-
+    void Update() {
+        //Move player by grid
+        info.gameObject.transform.position = Vector2.MoveTowards(info.gameObject.transform.position, movePoint.transform.position, move_speed);
         
-    }
+        //Get player input
+        if (Vector2.Distance(info.gameObject.transform.position, movePoint.transform.position) <= moveThreshold) {
+            Vector3 nextMove = Vector3.zero;
 
-    public override Vector3 nextMove() {
+            if (Mathf.Abs(info.moveInput.x) >= info.inputThreshold) {
+                facing = (info.moveInput.x >= 0) ? true : false;
+                nextMove = new Vector3(info.moveInput.x / Mathf.Abs(info.moveInput.x), 0f, 0f);
+            } else if (Mathf.Abs(info.moveInput.y) >= info.inputThreshold) {
+                nextMove = new Vector3(0f, info.moveInput.y / Mathf.Abs(info.moveInput.y), 0f);
+            }
 
-        //Assume keyboard input
-        if (Mathf.Abs(global.input.moveInput.x) >= global.input.inputThreshold) {
-            facing = (global.input.moveInput.x >= 0) ? true : false;
-            return new Vector3(global.input.moveInput.x/Mathf.Abs(global.input.moveInput.x), 0f,0f);
-        } else if (Mathf.Abs(global.input.moveInput.y) >= global.input.inputThreshold) {
-            return new Vector3(0f,global.input.moveInput.y / Mathf.Abs(global.input.moveInput.y), 0f);
+            movePoint.transform.position += nextMove;
         }
-        return Vector3.zero;
+
     }
     
 }
