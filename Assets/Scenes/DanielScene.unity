@@ -164,8 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {fileID: 692512774}
-  moveThreshold: 0.05
-  move_speed: 1
+  moveThreshold: 0.02
+  move_speed: 0.13
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb7c522d2ad9bb4e9458c46cae02b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  anim: {fileID: 0}
+  sr: {fileID: 0}
   moveInput: {x: 0, y: 0}
   inputThreshold: 0.1
