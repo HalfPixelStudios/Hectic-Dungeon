@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 1757688028}
   - component: {fileID: 1757688031}
   m_Layer: 0
-  m_Name: player_knight_0 (1)
+  m_Name: item lmao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -561,6 +561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1927703634}
   - component: {fileID: 1927703635}
+  - component: {fileID: 1927703636}
   m_Layer: 0
   m_Name: GlobalContainer
   m_TagString: Untagged
@@ -594,6 +595,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82d2e82a4cfb23e4c9043468e3d804f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floor: {fileID: 2011668709151106262}
+--- !u!114 &1927703636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927703633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e309a4eca8b470fbb948398f7ea4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePrefab: {fileID: 2503443437899203936, guid: 85ed56ad4d0fd432d83df0f02877607e,
+    type: 3}
+  tileSprites:
+  - {fileID: 21300000, guid: 5bb76f62546df4be6856faf4c345f3e7, type: 3}
+  - {fileID: 21300000, guid: 5f4319033bf1e42418755f660daffe81, type: 3}
+  - {fileID: 21300000, guid: 945b56584b28d4f7baa30df717567222, type: 3}
 --- !u!1 &2137490708
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,3 +795,9 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &2011668709151106262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7211703329283869876, guid: acc8c1deb28794747ae43f70cbccf9df,
+    type: 3}
+  m_PrefabInstance: {fileID: 1580210074}
+  m_PrefabAsset: {fileID: 0}
