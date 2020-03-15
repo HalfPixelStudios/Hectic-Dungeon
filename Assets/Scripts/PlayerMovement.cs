@@ -39,16 +39,6 @@ public class PlayerMovement : MonoBehaviour {
             info.sr.flipX = !facing;
         }
 
-
-        /*
-if (Mathf.Abs(info.moveInput.x) >= info.inputThreshold) {
-    facing = (info.moveInput.x >= 0) ? true : false;
-    info.sr.flipX = !facing; //flip player direction based on input
-    nextMove = new Vector3(info.moveInput.x / Mathf.Abs(info.moveInput.x), 0f, 0f);
-} else if (Mathf.Abs(info.moveInput.y) >= info.inputThreshold) {
-    nextMove = new Vector3(0f, info.moveInput.y / Mathf.Abs(info.moveInput.y), 0f);
-}
-*/
     }
 
 }
