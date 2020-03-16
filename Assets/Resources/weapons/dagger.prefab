@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: dagger
-  durability: 2
+  durability: 3

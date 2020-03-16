@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using Random = UnityEngine.Random;
-
 
 public class GlobalContainer : MonoBehaviour {
 
@@ -15,6 +15,8 @@ public class GlobalContainer : MonoBehaviour {
     public GameObject player;
     public GameObject items;
     public GameObject enviro;
+
+    public Canvas canvas;
     private int counter = 0;
     
 
@@ -71,7 +73,11 @@ public class GlobalContainer : MonoBehaviour {
         Transform ptrans = player.GetComponent<PlayerInfo>().trans;
         SpriteRenderer psr = player.GetComponent<SpriteRenderer>();
         psr.sortingOrder = (int)(ptrans.position.y * -100);
-        
+
+
+        //Update score
+        TextMeshProUGUI tm = canvas.GetComponentInChildren<TextMeshProUGUI>();
+        tm.text = player.GetComponent<PlayerInfo>().score.ToString();
         
     }
 

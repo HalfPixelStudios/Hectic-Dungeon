@@ -5,8 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D),typeof(Rigidbody2D))]
 public class PlayerInteracter : MonoBehaviour {
 
+    PlayerInfo info;
     void Start() {
-        
+        info = GetComponentInParent<PlayerInfo>();
     }
 
     void Update() {
@@ -20,7 +21,7 @@ public class PlayerInteracter : MonoBehaviour {
 
         if (collision.gameObject.GetComponent<EnemyMovement>() != null)
         {
-            Destroy(gameObject);
+            info.PlayerDeath();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision) {
