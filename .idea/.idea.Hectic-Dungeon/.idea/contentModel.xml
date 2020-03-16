@@ -27,6 +27,7 @@
           <e p="PlayerInputActions.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
           <e p="Spawner.cs" t="Include" />
+          <e p="TempSoundPlayer.cs" t="Include" />
           <e p="Timer.cs" t="Include" />
           <e p="Weapon.cs" t="Include" />
         </e>
