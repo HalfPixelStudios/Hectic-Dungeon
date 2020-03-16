@@ -15,13 +15,18 @@ public class Equip : MonoBehaviour
     }
     
     void Update() {
-        if (Input.GetButtonDown("UseItem")) { 
+        if (Input.GetButtonDown("UseItem") && equipped != null) { 
             if (!info.isAiming) { //enter aiming mode
                 info.isAiming = true;
 
-            } else {
+            } else { //confirm item use 
                 info.isAiming = false;
                 DestroyHighlights();
+
+                if(!equipped.GetComponent<Equipment>().activate()) { //use item
+                    unequipEquipment(); //if its durability is used up, destroy it
+                }
+
             }
         }
 
@@ -29,26 +34,25 @@ public class Equip : MonoBehaviour
         if (info.isAiming) { //MAKE THIS BETTER AND NOT UPDATE EVERY LOOP
 
             //If item uses tile highlighting
-            DestroyHighlights();
+            int[,] pattern = equipped.GetComponent<Equipment>().pattern;
+            if (pattern != null) {
+                DestroyHighlights();
+                Vector3 pos = info.interacter.GetComponent<BoxCollider2D>().transform.position;
+                highlight = DrawHighlights.createPattern(Resources.Load("tile_select2") as GameObject, pattern, pos, info.facing);
+            }
+            
 
-
+            /*
             int[,] inp = new int[3, 3] {
                 {0,1,0},
                 {0,1,0},
                 {0,1,0}
             };
-            Vector3 pos = info.interacter.GetComponent<BoxCollider2D>().transform.position;
-            Debug.Log(info.facing);
-            highlight = DrawHighlights.createPattern(Resources.Load("tile_select2") as GameObject, inp, pos, info.facing);
+            */
+
+
             
         }
-
-        /*
-        if (Input.GetButtonDown("UseItem")&&equipped!=null)
-        {
-            GetComponentInChildren<Equipment>().activate();
-        }
-        */
 
     }
     private void DestroyHighlights() {
@@ -60,18 +64,26 @@ public class Equip : MonoBehaviour
             highlight = null;
         }
     }
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.GetComponentInChildren<Equipment>() != null)
-        {
-            if (equipped != null)
-            {
-                Destroy(equipped);
-            }
+
+    private void OnTriggerEnter2D(Collider2D other) { //EQUIP OBJECT
+        if (other.gameObject.GetComponentInChildren<Equipment>() != null) {
+            if (equipped != null) { Destroy(equipped); }//remove previous item if there is 
+
             Transform equipment = other.gameObject.transform.GetChild(0);
+
             equipment.SetParent(transform);
+            equipment.localPosition = Vector3.zero;
+            equipment.gameObject.active = false;
             equipped = equipment.gameObject;
             Destroy(other.gameObject);
 
         }
+    }
+
+    private void unequipEquipment() {
+        if (equipped == null) { return; }
+
+        Destroy(equipped);
+        equipped = null;
     }
 }
