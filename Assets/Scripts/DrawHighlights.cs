@@ -12,7 +12,7 @@ public class DrawHighlights : MonoBehaviour {
             {0,1,1},
             {0,1,0}
         };
-        createPattern(sprite,inp, Vector3.zero, Vector2.right); //HAS TO BE SQUARE
+        createPattern(sprite,inp, Vector3.zero, Vector2.down); //HAS TO BE ODD SQUARE
     }
 
     void Update() {
@@ -23,11 +23,18 @@ public class DrawHighlights : MonoBehaviour {
 
         int len = pattern.GetLength(0);
         Vector3 newOrigin = origin;
-        /*
-        if (direction == Vector2.up) {
-            newOrigin += new Vector3(-len/2,len);
+
+        if (direction == Vector2.left) {
+            newOrigin += new Vector3(-len,(int)(-len/2f));
         }
-        */
+        else if (direction == Vector2.up) {
+            newOrigin += new Vector3((int)(-len/2f),1);
+        } else if (direction == Vector2.right) {
+            newOrigin += new Vector3(1, (int)(-len / 2f));
+        } else if (direction == Vector2.down) {
+            newOrigin += new Vector3((int)(-len / 2f), -len);
+        }
+        
         //rotate array
         int[,] rotated = rotatePattern(pattern, direction, len);
         for (int j = 0; j < len; j++) {
