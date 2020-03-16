@@ -9,6 +9,7 @@ public class PlayerInfo : MonoBehaviour {
     public GameObject interacter;
     public Vector2 facing; 
     public bool isAiming; //is the player in the aiming state
+    public Transform trans;
     [Range(0f, 1f)] public float inputThreshold;
 
 
@@ -18,6 +19,10 @@ public class PlayerInfo : MonoBehaviour {
         interacter = GetComponentInChildren<PlayerInteracter>().gameObject;
         facing = new Vector2(1, 0);
 
+    }
+
+    private void Update() {
+        trans = interacter.GetComponent<BoxCollider2D>().transform;
     }
 
 

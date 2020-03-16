@@ -43,13 +43,6 @@ public class Equip : MonoBehaviour
             
         }
 
-        /*
-        if (Input.GetButtonDown("UseItem")&&equipped!=null)
-        {
-            GetComponentInChildren<Equipment>().activate();
-        }
-        */
-
     }
     private void DestroyHighlights() {
         if (highlight != null) { //remove previous highlight if it exists
@@ -60,15 +53,16 @@ public class Equip : MonoBehaviour
             highlight = null;
         }
     }
+
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.GetComponentInChildren<Equipment>() != null)
-        {
-            if (equipped != null)
-            {
-                Destroy(equipped);
-            }
+        if (other.gameObject.GetComponentInChildren<Equipment>() != null) {
+            if (equipped != null) { Destroy(equipped); }//remove previous item if there is 
+
             Transform equipment = other.gameObject.transform.GetChild(0);
+
             equipment.SetParent(transform);
+            equipment.localPosition = Vector3.zero;
+            equipment.gameObject.active = false;
             equipped = equipment.gameObject;
             Destroy(other.gameObject);
 

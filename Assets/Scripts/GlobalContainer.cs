@@ -12,6 +12,7 @@ public class GlobalContainer : MonoBehaviour {
     public GameObject enemies;
     public GameObject player;
     public GameObject items;
+    public GameObject enviro;
     
 
     private void Awake() {
@@ -25,6 +26,8 @@ public class GlobalContainer : MonoBehaviour {
 
     private void Update()
     {
+
+        //Upatae all enemies
         if (playerMoved)
         {
             foreach (var enemy in enemies.GetComponentsInChildren<EnemyMovement>())
@@ -35,6 +38,21 @@ public class GlobalContainer : MonoBehaviour {
             playerMoved = false;
 
         }
+
+        /*
+        //Adjust sorting layer depending on y position
+        //TODO: make this more efficient later
+        foreach (Transform t in enemies.transform) { YOrder(t); }
+        foreach (Transform t in enviro.transform) { YOrder(t); }
+        YOrder(player.transform);
+        */
         
+    }
+
+    private static void YOrder(Transform t) {
+        SpriteRenderer sr = t.gameObject.GetComponent<SpriteRenderer>();
+        if (sr) { //if not null
+            sr.sortingOrder = (int)(sr.transform.position.y * -100);
+        }
     }
 }

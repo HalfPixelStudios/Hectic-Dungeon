@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DrawHighlights : MonoBehaviour {
 
-    public GameObject sprite;
-
     /*
     void Start() {
         int[,] inp = new int[3, 3] {
@@ -16,7 +14,6 @@ public class DrawHighlights : MonoBehaviour {
         createPattern(sprite,inp, Vector3.zero, Vector2.down); //HAS TO BE ODD SQUARE
     }
     */
-
 
     public static GameObject createPattern(GameObject sprite,int[,] pattern,Vector3 origin,Vector2 direction) { //pattern comes in a string of 1s and 0s, rows separated by ','
         GameObject container = new GameObject();
