@@ -7,6 +7,7 @@ public class FloorGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private List<Sprite> tileSprites;
+    [SerializeField] private List<GameObject> enviroObjs;
     
     
 

@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 public class GlobalContainer : MonoBehaviour {
 
@@ -13,6 +15,7 @@ public class GlobalContainer : MonoBehaviour {
     public GameObject player;
     public GameObject items;
     public GameObject enviro;
+    private int counter = 0;
     
 
     private void Awake() {
@@ -30,6 +33,7 @@ public class GlobalContainer : MonoBehaviour {
         //Upatae all enemies
         if (playerMoved)
         {
+            counter += 1;
             foreach (var enemy in enemies.GetComponentsInChildren<EnemyMovement>())
             {
                 enemy.move();
@@ -38,9 +42,20 @@ public class GlobalContainer : MonoBehaviour {
                 obj.updateSpike();
             }
 
+            
+            if (counter % 3 == 0||Random.Range(0f,1f)<0.08)
+            {
+                GetComponent<Spawner>().SpawnEnemy();
+            }
+
+            if (counter % 5 == 0)
+            {
+                GetComponent<Spawner>().SpawnEquipment();
+            }
             playerMoved = false;
 
         }
+        
 
         
         //Adjust sorting layer depending on y position
