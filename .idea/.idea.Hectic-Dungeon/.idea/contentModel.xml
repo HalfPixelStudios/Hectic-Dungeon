@@ -12,6 +12,7 @@
           <e p="Equip.cs" t="Include" />
           <e p="Equipment.cs" t="Include" />
           <e p="FloorGenerator.cs" t="Include" />
+          <e p="GameOver.cs" t="Include" />
           <e p="GlobalContainer.cs" t="Include" />
           <e p="Interaction" t="Include">
             <e p="CrateInteracter.cs" t="Include" />
