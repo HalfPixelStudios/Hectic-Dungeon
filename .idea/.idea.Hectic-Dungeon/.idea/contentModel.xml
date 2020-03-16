@@ -6,6 +6,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="CameraController.cs" t="Include" />
+          <e p="DrawHighlights.cs" t="Include" />
           <e p="EnemyAI.cs" t="Include" />
           <e p="EnemyMovement.cs" t="Include" />
           <e p="Equip.cs" t="Include" />
@@ -16,10 +17,13 @@
             <e p="CrateInteracter.cs" t="Include" />
             <e p="InteractionHandler.cs" t="Include" />
             <e p="PlayerInteracter.cs" t="Include" />
+            <e p="SpikeInteracter.cs" t="Include" />
           </e>
+          <e p="Menu.cs" t="Include" />
           <e p="PlayerInfo.cs" t="Include" />
           <e p="PlayerInputActions.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
+          <e p="Timer.cs" t="Include" />
         </e>
         <e p="SuperTiled2Unity" t="Include">
           <e p="Scripts" t="Include">

@@ -570,8 +570,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1529709311
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1394162257739341225, guid: d86103ce18688af4881b3816e3dc9195,
     type: 3}
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoint: {fileID: 1597354886}
-  move_speed: 0
+  move_speed: 0.5
 --- !u!1 &1757688027
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,8 +886,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1529709311
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 5037631765875594351, guid: 9e0777e469d07aa478bfd5ecc4dc6035,
     type: 3}
