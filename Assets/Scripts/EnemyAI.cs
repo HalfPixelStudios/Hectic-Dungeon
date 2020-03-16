@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
         HashSet<Vector3> visited = new HashSet<Vector3>();
         visited.Add(start);
         Dictionary<Vector3, Vector3> cameFrom = new Dictionary<Vector3, Vector3>();
-        
+        int c = 0;
         while (queue.Count!=0)
         {
             var cur = queue[0];
@@ -47,21 +47,23 @@ public class EnemyAI : MonoBehaviour
                 }
             }
         }
-
-        foreach (var node in cameFrom)
-        {
-            print(node);
-            
-        }
         var trace = target;
-        while (cameFrom[trace] !=start)
+        c = 0;
+        while (cameFrom[trace]!=start)
         {
-            trace = cameFrom[target];
+            c += 1;
+            if (c > cameFrom.Count)
+            {
+                print("why");
+                break;
+            }
+
+            trace = cameFrom[trace];
         }
         
         
         nextStep=trace-start;
-        
+
     }
 
     bool checkValid(float x,float y)
