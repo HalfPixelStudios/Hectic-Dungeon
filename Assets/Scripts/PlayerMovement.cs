@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour {
 
             if (hit && hit.collider.gameObject.GetComponent<InteractionHandler>() && hit.collider.gameObject.GetComponent<InteractionHandler>().isCollision) {
                 info.interacter.GetComponent<PlayerInteracter>().TriggerInteract(hit.collider);
+
             } else {
                 movePoint.transform.position += dir;
             }
