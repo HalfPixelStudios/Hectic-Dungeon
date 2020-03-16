@@ -40,6 +40,7 @@ public class DrawHighlights : MonoBehaviour {
                 if (rotated[i,j] == 1) {
                     GameObject tile = Instantiate(sprite,newOrigin+new Vector3(i,j,0),Quaternion.identity) as GameObject;
                     tile.transform.parent = container.transform;
+                    tile.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 }
             }
         }
