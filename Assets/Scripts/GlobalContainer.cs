@@ -49,7 +49,7 @@ public class GlobalContainer : MonoBehaviour {
             }
 
             
-            if (counter % 3 == 0||Random.Range(0f,1f)<0.08)
+            if (counter % 4 == 0||Random.Range(0f,1f)<0.08)
             {
                 GetComponent<Spawner>().SpawnEnemy();
             }
@@ -86,5 +86,26 @@ public class GlobalContainer : MonoBehaviour {
         if (sr) { //if not null
             sr.sortingOrder = (int)(sr.transform.position.y * -100);
         }
+    }
+    public bool ItemOrEnemyContains(Vector3 pos)
+    {
+        foreach (var item in items.GetComponents<Transform>())
+        {
+            if (pos.Equals(item.position))
+            {
+                return true;
+            }
+            
+        }
+        foreach (var enemy in enemies.GetComponents<Transform>())
+        {
+            if (pos.Equals(enemy.position))
+            {
+                return true;
+            }
+            
+        }
+
+        return false;
     }
 }

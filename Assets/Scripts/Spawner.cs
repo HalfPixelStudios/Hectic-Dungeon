@@ -19,8 +19,8 @@ public class Spawner : MonoBehaviour
         {
             int x = Random.Range(1, 11);
             int y = Random.Range(1, 11);
-            if (GlobalContainer.global.tiles[y][x] == 1) 
-            { 
+            if (GlobalContainer.global.tiles[y][x] == 1&&!GlobalContainer.global.ItemOrEnemyContains(new Vector3(x,y,0))) 
+            {
                 return Instantiate(prefabs[Random.Range(0, prefabs.Count - 1)],new Vector3(1.5f+x, -1.5f-y, 0),Quaternion.identity);
                 
             }
