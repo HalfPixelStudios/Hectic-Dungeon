@@ -1045,6 +1045,7 @@ MonoBehaviour:
   floor: {fileID: 0}
   playerMoved: 0
   enemies: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &2137490708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1178,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tile_select2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995142619769265595, guid: 9033bec3db858134db0a241888a9c114,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7995142619769265588, guid: 9033bec3db858134db0a241888a9c114,
         type: 3}

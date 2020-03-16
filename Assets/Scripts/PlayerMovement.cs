@@ -53,12 +53,7 @@ public class PlayerMovement : MonoBehaviour {
                 
                 movePoint.transform.position += dir;
             }
-            
-            
-            
-
-            
-
+  
             //flip playser sprite based on input
             info.sr.flipX = (facing.x > 0) ? false : true;
         }

@@ -14,6 +14,7 @@ public class PlayerInfo : MonoBehaviour {
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         interacter = GetComponent<PlayerInteracter>().gameObject;
+
     }
 
 

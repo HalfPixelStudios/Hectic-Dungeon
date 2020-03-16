@@ -6,15 +6,15 @@ using UnityEngine;
 public class Equip : MonoBehaviour
 {
     private GameObject equipped;
-    void Start()
-    {
+
+    void Start() {
         
         
     }
     
     void Update()
     {
-        if (Input.GetButtonDown("Fire")&&equipped!=null)
+        if (Input.GetButtonDown("UseItem")&&equipped!=null)
         {
             GetComponentInChildren<Equipment>().activate();
         }
