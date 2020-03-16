@@ -18,7 +18,8 @@ public class DrawHighlights : MonoBehaviour {
     */
 
 
-    public void createPattern(GameObject sprite,int[,] pattern,Vector3 origin,Vector2 direction) { //pattern comes in a string of 1s and 0s, rows separated by ','
+    public static GameObject createPattern(GameObject sprite,int[,] pattern,Vector3 origin,Vector2 direction) { //pattern comes in a string of 1s and 0s, rows separated by ','
+        GameObject container = new GameObject();
 
         int len = pattern.GetLength(0);
         Vector3 newOrigin = origin;
@@ -33,20 +34,24 @@ public class DrawHighlights : MonoBehaviour {
         } else if (direction == Vector2.down) {
             newOrigin += new Vector3((int)(-len / 2f), -len);
         }
-        
+        container.transform.position = newOrigin;
+
         //rotate array
         int[,] rotated = rotatePattern(pattern, direction, len);
         for (int j = 0; j < len; j++) {
             for (int i = 0; i < len; i++) {
                 if (rotated[i,j] == 1) {
-                    Instantiate(sprite,newOrigin+new Vector3(i,j,0),Quaternion.identity);
+                    GameObject tile = Instantiate(sprite,newOrigin+new Vector3(i,j,0),Quaternion.identity) as GameObject;
+                    tile.transform.parent = container.transform;
                 }
             }
         }
+
+        return container;
         
     }
 
-    public int[,] rotatePattern(int[,] arr,Vector2 direction,int size) {
+    public static int[,] rotatePattern(int[,] arr,Vector2 direction,int size) {
         if (direction == Vector2.left) {
             return arr;
         } else if (direction == Vector2.up) {
@@ -61,7 +66,7 @@ public class DrawHighlights : MonoBehaviour {
     }
 
     //code from https://stackoverflow.com/questions/42519/how-do-you-rotate-a-two-dimensional-array
-    private int[,] RotateMatrix(int[,] matrix, int n) {
+    private static int[,] RotateMatrix(int[,] matrix, int n) {
         int[,] ret = new int[n, n];
 
         for (int i = 0; i < n; ++i) {
