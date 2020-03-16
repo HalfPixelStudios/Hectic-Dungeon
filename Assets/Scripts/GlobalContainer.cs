@@ -10,6 +10,7 @@ public class GlobalContainer : MonoBehaviour {
     public List<List<int>> tiles;
     public bool playerMoved;
     public GameObject enemies;
+    public GameObject player;
     
 
     private void Awake() {
