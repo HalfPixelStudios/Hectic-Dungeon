@@ -19,6 +19,7 @@ public class EnemyMovement : MonoBehaviour {
     {
         movePoint.transform.position += GetComponent<EnemyAI>().nextStep;
     }
+    
 
 
 }

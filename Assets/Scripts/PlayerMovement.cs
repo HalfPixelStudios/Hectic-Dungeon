@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
     }
+    
     /*
     void OnDrawGizmos() {
         Gizmos.DrawLine(info.interacter.GetComponent<BoxCollider2D>().transform.position, info.interacter.GetComponent<BoxCollider2D>().transform.position + dir);
