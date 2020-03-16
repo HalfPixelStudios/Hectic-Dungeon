@@ -20,10 +20,14 @@ public class GlobalContainer : MonoBehaviour {
 
     private void Awake() {
         global = this;
+        
     }
 
     private void Start()
     {
+        GetComponent<Spawner>().SpawnEquipment();
+        GetComponent<Spawner>().SpawnEquipment();
+        GetComponent<Spawner>().SpawnEnemy();
         
     }
 
@@ -48,7 +52,7 @@ public class GlobalContainer : MonoBehaviour {
                 GetComponent<Spawner>().SpawnEnemy();
             }
 
-            if (counter % 5 == 0)
+            if (counter % 5 == 0||Random.Range(0f,1f)<0.15)
             {
                 GetComponent<Spawner>().SpawnEquipment();
             }

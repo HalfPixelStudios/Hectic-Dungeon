@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInfo : MonoBehaviour {
 
@@ -35,6 +36,7 @@ public class PlayerInfo : MonoBehaviour {
     public void PlayerDeath() {
         TempSoundPlayer sp = Instantiate(Resources.Load("TempSoundPlayer") as GameObject).GetComponent<TempSoundPlayer>();
         sp.playSound(deathSound);
+        SceneManager.LoadScene("Game Over");
     }
 
 }
