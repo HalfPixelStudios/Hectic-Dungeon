@@ -17,14 +17,14 @@ public class FloorGenerator : MonoBehaviour
 
         var floor = GetComponent<GlobalContainer>().floor;
         tiles.Add(Enumerable.Repeat(0,14).ToList());
-        for (int y = 1; y <14; y++)
+        for (int y = 1; y <12; y++)
         {
             var row = new List<int>();
             row.Add(0);
             for (int x = 1; x < 12; x++)
             {
                 
-                if (Random.Range(0f, 1f)<0.07f)
+                if (Random.Range(0f, 1f)<0.04f)
                 {
                     row.Add(0);
                     
@@ -41,6 +41,7 @@ public class FloorGenerator : MonoBehaviour
             tiles.Add(row);
             
         }
+        tiles.Add(Enumerable.Repeat(0,14).ToList());
         tiles.Add(Enumerable.Repeat(0,14).ToList());
 
         GetComponent<GlobalContainer>().tiles = tiles;
