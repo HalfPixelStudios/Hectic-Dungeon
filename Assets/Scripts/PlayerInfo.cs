@@ -17,6 +17,8 @@ public class PlayerInfo : MonoBehaviour {
     public AudioClip attackSound;
     public AudioClip moveSound;
 
+    public int score;
+
 
     void Awake() {
         anim = GetComponent<Animator>();
