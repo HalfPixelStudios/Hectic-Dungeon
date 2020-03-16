@@ -22,6 +22,11 @@ public class EnemyAI : MonoBehaviour
     {
         Vector3 target = GetTarget();
         Vector3 start = _enemyMovement.movePoint;
+
+        if (target.Equals(start))
+        {
+            return;
+        }
         Vector3[] dirs = {Vector3.left,  Vector3.down, Vector3.right, Vector3.up};
         List<Vector3> queue=new List<Vector3>();
         queue.Add(start);

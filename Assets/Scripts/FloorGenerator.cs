@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FloorGenerator : MonoBehaviour
@@ -15,12 +16,14 @@ public class FloorGenerator : MonoBehaviour
         var tiles=new List<List<int>>();
 
         var floor = GetComponent<GlobalContainer>().floor;
-        for (int y = 0; y <14; y++)
+        tiles.Add(Enumerable.Repeat(0,14).ToList());
+        for (int y = 1; y <14; y++)
         {
             var row = new List<int>();
-            
-            for (int x = 0; x < 13; x++)
+            row.Add(0);
+            for (int x = 1; x < 12; x++)
             {
+                
                 if (Random.Range(0f, 1f)<0.07f)
                 {
                     row.Add(0);
@@ -34,9 +37,11 @@ public class FloorGenerator : MonoBehaviour
                 g.transform.SetParent(floor.transform);
                 
             }
+            row.Add(0);
             tiles.Add(row);
             
         }
+        tiles.Add(Enumerable.Repeat(0,14).ToList());
 
         GetComponent<GlobalContainer>().tiles = tiles;
 
