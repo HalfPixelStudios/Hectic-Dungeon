@@ -23,7 +23,9 @@ public class Spawner : MonoBehaviour
                 int y = Random.Range(1, 11);
                 if (GlobalContainer.global.tiles[y][x] == 1)
                 {
-                    Instantiate(enemyFabs[Random.Range(0, enemyFabs.Count - 1)],new Vector3(1.5f+x, -1.5f-y, 0),Quaternion.identity);
+                    GameObject g=Instantiate(enemyFabs[Random.Range(0, enemyFabs.Count - 1)],new Vector3(1.5f+x, -1.5f-y, 0),Quaternion.identity);
+                    g.transform.parent = GlobalContainer.global.enemies.transform;
+                    break;
                 }
 
             }
