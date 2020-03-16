@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour {
             }
   
             //flip playser sprite based on input
-            info.sr.flipX = (info.facing.x > 0) ? false : true;
+            info.sr.flipX = info.facing.x < 0;
             if (global.tiles[-(int) (movePoint.transform.position.y + .5f)][(int) (movePoint.transform.position.x - 1.5f)]==0)
             {
                 Destroy(transform.parent.gameObject);
