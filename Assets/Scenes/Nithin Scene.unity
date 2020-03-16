@@ -858,6 +858,7 @@ GameObject:
   - component: {fileID: 1927703634}
   - component: {fileID: 1927703635}
   - component: {fileID: 1927703636}
+  - component: {fileID: 1927703637}
   m_Layer: 0
   m_Name: GlobalContainer
   m_TagString: Untagged
@@ -915,6 +916,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2b03e8bc3678ee84fb85f86a65499fb9, type: 3}
   - {fileID: 21300000, guid: 267695d81ed901c4f85e4fa5ff779e68, type: 3}
   - {fileID: 21300000, guid: 77f9727686a571a4983d994adebc57c2, type: 3}
+--- !u!114 &1927703637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927703633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e640e5f63aa40480eae495ee22a8cd6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyFabs: []
 --- !u!4 &2008703682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5116704625875090409, guid: 33d3b382aa5d64563a67fdbb60e2141a,
