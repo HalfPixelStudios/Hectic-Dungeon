@@ -24,6 +24,11 @@ public class ItemEaterAI : EnemyAI
             
         }
 
+        if (target == Vector3.zero)
+        {
+            return base.GetTarget();
+        }
+
         return target;
 
 

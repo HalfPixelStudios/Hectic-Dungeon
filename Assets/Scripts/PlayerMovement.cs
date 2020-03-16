@@ -8,25 +8,26 @@ public class PlayerMovement : MonoBehaviour {
 
     PlayerInfo info;
 
-    public GameObject movePoint;
+    public Vector3 movePoint=Vector3.zero;
     [Range(0f,1f)] public float moveThreshold;
     [Range(0.001f, 1f)] public float move_speed;
 
 
     Vector3 dir = Vector3.zero;
-    void Awake() {
+    void Awake()
+    {
+        movePoint = transform.position;
 
         info = GetComponentInParent<PlayerInfo>();
-        movePoint.transform.parent = null;
     }
 
     void Update() {
         //Move player by grid
         
-        info.gameObject.transform.position = Vector2.MoveTowards(info.gameObject.transform.position, movePoint.transform.position, move_speed);
+        info.gameObject.transform.position = Vector2.MoveTowards(info.gameObject.transform.position, movePoint, move_speed);
         
         //Get player input
-        if (Vector2.Distance(info.gameObject.transform.position, movePoint.transform.position) <= moveThreshold) {
+        if (Vector2.Distance(info.gameObject.transform.position, movePoint) <= moveThreshold) {
             //assume keyboard
             int x = 0; int y = 0;
             if (Input.GetButtonDown("Up")) { y = 1; info.facing = new Vector2(0,1); }
@@ -50,12 +51,12 @@ public class PlayerMovement : MonoBehaviour {
                 }
                 
 
-                movePoint.transform.position += dir;
+                movePoint += dir;
             }
   
             //flip playser sprite based on input
             info.sr.flipX = info.facing.x < 0;
-            if (global.tiles[-(int) (movePoint.transform.position.y + .5f)][(int) (movePoint.transform.position.x - 1.5f)]==0)
+            if (global.tiles[-(int) (movePoint.y + .5f)][(int) (movePoint.x - 1.5f)]==0)
             {
                 Destroy(transform.parent.gameObject);
                 

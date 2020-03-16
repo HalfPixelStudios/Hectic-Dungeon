@@ -7,18 +7,21 @@ using static GlobalContainer;
 public class EnemyAI : MonoBehaviour
 {
     public Vector3 nextStep;
+    private EnemyMovement _enemyMovement;
+    private PlayerMovement _playerMovement;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _playerMovement = global.player.GetComponentInChildren<PlayerMovement>();
+        _enemyMovement = GetComponent<EnemyMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 target = GetTarget();
-        Vector3 start = transform.position;
+        Vector3 start = _enemyMovement.movePoint;
         Vector3[] dirs = {Vector3.left,  Vector3.down, Vector3.right, Vector3.up};
         List<Vector3> queue=new List<Vector3>();
         queue.Add(start);
@@ -61,7 +64,7 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual Vector3 GetTarget()
     {
-        return global.player.transform.position;
+        return _playerMovement.movePoint;
     }
 
     bool checkValid(float x,float y)
