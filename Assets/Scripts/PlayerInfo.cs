@@ -10,7 +10,7 @@ public class PlayerInfo : MonoBehaviour {
     [Range(0f, 1f)] public float inputThreshold;
 
 
-    void Awake() {
+    void Start() {
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         interacter = GetComponent<PlayerInteracter>().gameObject;
