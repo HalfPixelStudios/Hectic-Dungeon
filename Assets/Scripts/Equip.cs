@@ -29,6 +29,8 @@ public class Equip : MonoBehaviour
                 highlight = DrawHighlights.createPattern(Resources.Load("tile_attack") as GameObject, pattern, pos, info.facing);
                 foreach (Transform t in highlight.transform) {
                     t.gameObject.AddComponent<KillAfterAnimation>();
+
+                    //kill any enemies standing on square
                 }
 
                 if (!equipped.GetComponent<Equipment>().activate()) { //use item

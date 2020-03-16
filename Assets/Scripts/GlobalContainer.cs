@@ -34,6 +34,9 @@ public class GlobalContainer : MonoBehaviour {
             {
                 enemy.move();
             }
+            foreach (var obj in enviro.GetComponentsInChildren<SpikeInteracter>()) {
+                obj.updateSpike();
+            }
 
             playerMoved = false;
 

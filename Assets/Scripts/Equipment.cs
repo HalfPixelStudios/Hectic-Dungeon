@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D),typeof(Rigidbody2D))]
 public class Equipment : MonoBehaviour {
 
 
@@ -13,16 +14,31 @@ public class Equipment : MonoBehaviour {
             { 0,0,1,0,0 },
             { 0,0,0,0,0 },
         },
-        ["axe"] = new int[3,3] {
+        ["hammer"] = new int[3,3] {
             { 0,0,0 },
             { 1,1,1 },
-            { 1,0,1 }
+            { 1,1,1 }
         },
         ["spear"] = new int[3,3] {
             { 0,1,0 },
             { 0,1,0 },
             { 0,1,0 }
-        }
+        },
+        ["dagger"] = new int[1,1] {
+            { 1 }
+        },
+        ["sword"] = new int[3,3] {
+            { 0,0,0 },
+            { 0,1,0 },
+            { 1,0,1 }
+        },
+        ["doom"] = new int[5, 5] {
+            { 1,0,1,0,1 },
+            { 1,0,1,0,1 },
+            { 1,1,1,1,1 },
+            { 0,1,1,1,0 },
+            { 0,0,1,0,0 },
+        },
     };
 
     public string name;
