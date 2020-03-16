@@ -29,6 +29,14 @@ public class Equip : MonoBehaviour
                 highlight = DrawHighlights.createPattern(Resources.Load("tile_attack") as GameObject, pattern, pos, info.facing);
                 foreach (Transform t in highlight.transform) {
                     t.gameObject.AddComponent<KillAfterAnimation>();
+                    foreach (var enemy in GlobalContainer.global.enemies.GetComponentsInChildren<Transform>())
+                    {
+                        if (enemy.position.Equals(t.position))
+                        {
+                            Destroy(enemy.gameObject);
+                        }
+                    
+                    }
                 }
 
                 if (!equipped.GetComponent<Equipment>().activate()) { //use item
@@ -56,8 +64,10 @@ public class Equip : MonoBehaviour
     private void DestroyHighlights() {
         if (highlight != null) { //remove previous highlight if it exists
             foreach (Transform t in highlight.transform) {
+                
                 Destroy(t.gameObject);
             }
+
             Destroy(highlight);
             highlight = null;
         }

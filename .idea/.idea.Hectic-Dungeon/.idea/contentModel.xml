@@ -20,6 +20,7 @@
             <e p="SpikeInteracter.cs" t="Include" />
           </e>
           <e p="ItemEaterAI.cs" t="Include" />
+          <e p="KillAfterAnimation.cs" t="Include" />
           <e p="Menu.cs" t="Include" />
           <e p="PlayerInfo.cs" t="Include" />
           <e p="PlayerInputActions.cs" t="Include" />
