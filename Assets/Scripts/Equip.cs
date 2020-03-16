@@ -23,9 +23,14 @@ public class Equip : MonoBehaviour
                 info.isAiming = false;
                 DestroyHighlights();
 
+                //apply ability effect
+
+
+
                 if(!equipped.GetComponent<Equipment>().activate()) { //use item
                     unequipEquipment(); //if its durability is used up, destroy it
                 }
+
 
             }
         }
@@ -41,17 +46,6 @@ public class Equip : MonoBehaviour
                 highlight = DrawHighlights.createPattern(Resources.Load("tile_select2") as GameObject, pattern, pos, info.facing);
             }
             
-
-            /*
-            int[,] inp = new int[3, 3] {
-                {0,1,0},
-                {0,1,0},
-                {0,1,0}
-            };
-            */
-
-
-            
         }
 
     }
@@ -66,16 +60,15 @@ public class Equip : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) { //EQUIP OBJECT
-        if (other.gameObject.GetComponentInChildren<Equipment>() != null) {
+        if (other.gameObject.GetComponent<Equipment>() != null) {
             if (equipped != null) { Destroy(equipped); }//remove previous item if there is 
 
-            Transform equipment = other.gameObject.transform.GetChild(0);
+            Transform equipment = other.gameObject.transform;
 
             equipment.SetParent(transform);
             equipment.localPosition = Vector3.zero;
-            equipment.gameObject.active = false;
+            equipment.gameObject.SetActive(false);
             equipped = equipment.gameObject;
-            Destroy(other.gameObject);
 
         }
     }
