@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 target = global.player.transform.position;
+        Vector3 target = GetTarget();
         Vector3 start = transform.position;
         Vector3[] dirs = {Vector3.left,  Vector3.down, Vector3.right, Vector3.up};
         List<Vector3> queue=new List<Vector3>();
@@ -57,6 +57,11 @@ public class EnemyAI : MonoBehaviour
         
         nextStep=trace-start;
 
+    }
+
+    protected virtual Vector3 GetTarget()
+    {
+        return global.player.transform.position;
     }
 
     bool checkValid(float x,float y)
