@@ -24,10 +24,14 @@ public class Equip : MonoBehaviour
                 DestroyHighlights();
 
                 //apply ability effect
+                int[,] pattern = equipped.GetComponent<Equipment>().pattern;
+                Vector3 pos = info.interacter.GetComponent<BoxCollider2D>().transform.position;
+                highlight = DrawHighlights.createPattern(Resources.Load("tile_attack") as GameObject, pattern, pos, info.facing);
+                foreach (Transform t in highlight.transform) {
+                    t.gameObject.AddComponent<KillAfterAnimation>();
+                }
 
-
-
-                if(!equipped.GetComponent<Equipment>().activate()) { //use item
+                if (!equipped.GetComponent<Equipment>().activate()) { //use item
                     unequipEquipment(); //if its durability is used up, destroy it
                 }
 
