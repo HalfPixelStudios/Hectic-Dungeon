@@ -11,6 +11,7 @@ public class GlobalContainer : MonoBehaviour {
     public bool playerMoved;
     public GameObject enemies;
     public GameObject player;
+    public GameObject items;
     
 
     private void Awake() {
