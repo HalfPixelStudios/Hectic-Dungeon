@@ -48,15 +48,8 @@ public class EnemyAI : MonoBehaviour
             }
         }
         var trace = target;
-        c = 0;
         while (cameFrom[trace]!=start)
         {
-            c += 1;
-            if (c > cameFrom.Count)
-            {
-                print("why");
-                break;
-            }
 
             trace = cameFrom[trace];
         }
@@ -69,7 +62,7 @@ public class EnemyAI : MonoBehaviour
     bool checkValid(float x,float y)
     {
         int posX = -(int) (y - 1.5f);
-        int posY = (int) (x - 1.5f);
+        int posY = (int) (x + 1.5f);
         return (0 <= posX && posX < 13)&&(0 <= posY && posY < 14)&&global.tiles[posY][posX] == 1;
 
     }
