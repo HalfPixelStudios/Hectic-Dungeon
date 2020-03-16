@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,18 @@ public class ItemEaterAI : EnemyAI
             }
             
         }
-        print(target);
 
         return target;
 
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.GetComponentInChildren<Equipment>()!=null)
+        {
+            Destroy(other.gameObject);
+            
+        }
     }
 }

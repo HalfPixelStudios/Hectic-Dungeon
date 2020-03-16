@@ -17,6 +17,11 @@ public class PlayerInteracter : MonoBehaviour {
         if (collision.gameObject.GetComponent<InteractionHandler>() != null) {
             collision.gameObject.GetComponent<InteractionHandler>().OnInteraction();
         }
+
+        if (collision.gameObject.GetComponent<EnemyMovement>() != null)
+        {
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         TriggerInteract(collision);
