@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     public GameObject movePoint;
     [Range(0f,1f)] public float moveThreshold;
     [Range(0.001f, 1f)] public float move_speed;
-    bool facing = true; //1 - facing right, 0 facing left
+    Vector2 facing = new Vector2(1,1); //1 - facing right, 0 facing left, 1 - facing up, 0 facing down
 
     Vector3 dir = Vector3.zero;
     void Awake() {
@@ -29,10 +29,10 @@ public class PlayerMovement : MonoBehaviour {
         if (Vector2.Distance(info.gameObject.transform.position, movePoint.transform.position) <= moveThreshold) {
             //assume keyboard
             int x = 0; int y = 0;
-            if (Input.GetButtonDown("Up")) { y = 1; }
-            else if (Input.GetButtonDown("Down")) { y = -1; }
-            else if (Input.GetButtonDown("Left")) { x = -1; facing = false; }
-            else if (Input.GetButtonDown("Right")) { x = 1; facing = true; }
+            if (Input.GetButtonDown("Up")) { y = 1; facing = new Vector2(facing.x,1); }
+            else if (Input.GetButtonDown("Down")) { y = -1; facing = new Vector2(facing.x,0); }
+            else if (Input.GetButtonDown("Left")) { x = -1; facing = new Vector2(0,facing.y); }
+            else if (Input.GetButtonDown("Right")) { x = 1; facing = new Vector2(1,facing.y); }
 
             dir = new Vector3(x, y, 0);
             //Determine if move is valid
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour {
             
 
             //flip playser sprite based on input
-            info.sr.flipX = !facing;
+            info.sr.flipX = (facing.x > 0) ? false : true;
         }
 
     }
