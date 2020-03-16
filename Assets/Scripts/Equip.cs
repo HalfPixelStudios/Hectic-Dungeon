@@ -39,6 +39,7 @@ public class Equip : MonoBehaviour
                         if (enemy.position.Equals(t.position))
                         {
                             Destroy(enemy.gameObject);
+                            info.score += 1;
                         }
                     
                     }
