@@ -39,10 +39,17 @@ public class PlayerMovement : MonoBehaviour {
 
             Vector3 pos = info.interacter.GetComponent<BoxCollider2D>().transform.position;
             RaycastHit2D hit = Physics2D.Raycast(pos, dir, 1);
+            
 
             if (hit && hit.collider.gameObject.GetComponent<InteractionHandler>() && hit.collider.gameObject.GetComponent<InteractionHandler>().isCollision) {
                 info.interacter.GetComponent<PlayerInteracter>().TriggerInteract(hit.collider);
-            } else {
+            } else
+            {
+                if ((int)dir.magnitude != 0)
+                {
+                    global.playerMoved = true;
+                }
+                
                 movePoint.transform.position += dir;
             }
             
@@ -56,7 +63,6 @@ public class PlayerMovement : MonoBehaviour {
         }
 
     }
-
     /*
     void OnDrawGizmos() {
         Gizmos.DrawLine(info.interacter.GetComponent<BoxCollider2D>().transform.position, info.interacter.GetComponent<BoxCollider2D>().transform.position + dir);

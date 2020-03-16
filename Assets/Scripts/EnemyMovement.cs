@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour {
 
     public GameObject movePoint;
-    [Range(0.001f, 1f)] public float move_speed;
+    [SerializeField] [Range(0.001f, 1f)] public float move_speed;
     bool facing = true; //1 - facing right, 0 facing left
 
     void Awake() {
@@ -13,7 +13,11 @@ public class EnemyMovement : MonoBehaviour {
     }
 
     void Update() {
-        
+        transform.position = Vector3.MoveTowards(gameObject.transform.position, movePoint.transform.position, move_speed);
+    }
+    public void move()
+    {
+        movePoint.transform.position += GetComponent<EnemyAI>().nextStep;
     }
 
 
