@@ -23,7 +23,6 @@ public class Equip : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print(true);
         if (other.gameObject.GetComponentInChildren<Equipment>() != null)
         {
             if (equipped != null)

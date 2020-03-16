@@ -13,7 +13,7 @@ public class PlayerInfo : MonoBehaviour {
     void Awake() {
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
-        interacter = GetComponentInChildren<PlayerInteracter>().gameObject;
+        interacter = GetComponent<PlayerInteracter>().gameObject;
     }
 
 
