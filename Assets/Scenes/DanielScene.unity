@@ -827,6 +827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2556842ede7444cb78807fbad39d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: bomb
   durability: 1
 --- !u!1 &1516994951
 GameObject:

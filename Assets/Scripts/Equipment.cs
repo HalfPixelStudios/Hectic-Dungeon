@@ -7,10 +7,10 @@ public class Equipment : MonoBehaviour {
 
     Dictionary<string, int[,]> patterndict = new Dictionary<string, int[,]>() {
         ["bomb"] = new int[5, 5] {
+            { 0,0,0,0,0 },
             { 0,0,1,0,0 },
             { 0,1,1,1,0 },
             { 0,0,1,0,0 },
-            { 0,0,0,0,0 },
             { 0,0,0,0,0 },
         },
         ["axe"] = new int[3,3] {
