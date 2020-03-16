@@ -12,6 +12,11 @@ public class PlayerInfo : MonoBehaviour {
     public Transform trans;
     [Range(0f, 1f)] public float inputThreshold;
 
+    public AudioClip deathSound;
+    public AudioClip pickupSound;
+    public AudioClip attackSound;
+    public AudioClip moveSound;
+
 
     void Awake() {
         anim = GetComponent<Animator>();
@@ -25,5 +30,9 @@ public class PlayerInfo : MonoBehaviour {
         trans = interacter.GetComponent<BoxCollider2D>().transform;
     }
 
+    public void PlayerDeath() {
+        TempSoundPlayer sp = Instantiate(Resources.Load("TempSoundPlayer") as GameObject).GetComponent<TempSoundPlayer>();
+        sp.playSound(deathSound);
+    }
 
 }

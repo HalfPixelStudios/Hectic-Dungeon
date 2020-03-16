@@ -48,16 +48,24 @@ public class PlayerMovement : MonoBehaviour {
             } else if (!info.isAiming) {
                 if ((int)dir.magnitude != 0) {
                     global.playerMoved = true;
+
+                    //play a sound
+                    TempSoundPlayer sp = Instantiate(Resources.Load("TempSoundPlayer") as GameObject).GetComponent<TempSoundPlayer>();
+                    sp.playSound(info.moveSound);
                 }
 
                 movePoint += dir;
+
+
             }
   
             //flip playser sprite based on input
             info.sr.flipX = info.facing.x < 0;
             if (global.tiles[-(int) (movePoint.y + .5f)][(int) (movePoint.x - 1.5f)]==0)
             {
-                Destroy(transform.parent.gameObject);
+                //PLayer dies
+                info.PlayerDeath();
+                //Destroy(transform.parent.gameObject);
                 
             }
         }

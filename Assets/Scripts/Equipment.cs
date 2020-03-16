@@ -56,7 +56,7 @@ public class Equipment : MonoBehaviour {
     public virtual bool activate() { //returns false if the equipment broke
         durability -= 1;
 
-        //deal damamge to all enemies that fall within the attack pattern
+        
 
         if (durability <= 0) { return false; }
 

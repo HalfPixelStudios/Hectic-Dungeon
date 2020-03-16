@@ -42,13 +42,14 @@ public class GlobalContainer : MonoBehaviour {
 
         }
 
-        /*
+        
         //Adjust sorting layer depending on y position
         //TODO: make this more efficient later
         foreach (Transform t in enemies.transform) { YOrder(t); }
         foreach (Transform t in enviro.transform) { YOrder(t); }
+        foreach (Transform t in items.transform) { YOrder(t); }
         YOrder(player.transform);
-        */
+        
         
     }
 

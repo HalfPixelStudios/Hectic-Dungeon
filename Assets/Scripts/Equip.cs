@@ -30,8 +30,23 @@ public class Equip : MonoBehaviour
                 foreach (Transform t in highlight.transform) {
                     t.gameObject.AddComponent<KillAfterAnimation>();
 
+
+
                     //kill any enemies standing on square
+
+                    foreach (var enemy in GlobalContainer.global.enemies.GetComponentsInChildren<Transform>())
+                    {
+                        if (enemy.position.Equals(t.position))
+                        {
+                            Destroy(enemy.gameObject);
+                        }
+                    
+                    }
                 }
+
+                //play a cool sound
+                TempSoundPlayer sp = Instantiate(Resources.Load("TempSoundPlayer") as GameObject).GetComponent<TempSoundPlayer>();
+                sp.playSound(info.attackSound);
 
                 if (!equipped.GetComponent<Equipment>().activate()) { //use item
                     unequipEquipment(); //if its durability is used up, destroy it
@@ -58,8 +73,10 @@ public class Equip : MonoBehaviour
     private void DestroyHighlights() {
         if (highlight != null) { //remove previous highlight if it exists
             foreach (Transform t in highlight.transform) {
+                
                 Destroy(t.gameObject);
             }
+
             Destroy(highlight);
             highlight = null;
         }
@@ -75,6 +92,10 @@ public class Equip : MonoBehaviour
             equipment.localPosition = Vector3.zero;
             equipment.gameObject.SetActive(false);
             equipped = equipment.gameObject;
+
+            //play a sound
+            TempSoundPlayer sp = Instantiate(Resources.Load("TempSoundPlayer") as GameObject).GetComponent<TempSoundPlayer>();
+            sp.playSound(info.pickupSound);
 
         }
     }
