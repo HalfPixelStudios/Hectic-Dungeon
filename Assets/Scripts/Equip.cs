@@ -26,7 +26,7 @@ public class Equip : MonoBehaviour
         }
 
         //Update highlights
-        if (info.isAiming) {
+        if (info.isAiming) { //MAKE THIS BETTER AND NOT UPDATE EVERY LOOP
 
             //If item uses tile highlighting
             DestroyHighlights();
