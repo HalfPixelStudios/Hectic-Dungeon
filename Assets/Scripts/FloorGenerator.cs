@@ -24,6 +24,13 @@ public class FloorGenerator : MonoBehaviour
             row.Add(0);
             for (int x = 1; x < 12; x++)
             {
+                Vector3 pos = new Vector3(x + 1.5f, -1.5f - y, 0);
+                if (GlobalContainer.global.player.transform.position == pos||GlobalContainer.global.ItemOrEnemyContains(pos))
+                {
+                    row.Add(1);
+                    return;
+                }
+                
                 
                 if (Random.Range(0f, 1f)<0.04f)
                 {
@@ -33,7 +40,7 @@ public class FloorGenerator : MonoBehaviour
                     continue;
                 }
                 row.Add(1);
-                GameObject g = Instantiate(tilePrefab, new Vector3(1.5f+x, -1.5f-y, 0), Quaternion.identity);
+                GameObject g = Instantiate(tilePrefab, pos, Quaternion.identity);
                 g.AddComponent<SpriteRenderer>().sprite = tileSprites[Random.Range(0, 2)];
                 g.transform.SetParent(floor.transform);
                 
@@ -50,4 +57,6 @@ public class FloorGenerator : MonoBehaviour
 
 
     }
+
+    
 }
