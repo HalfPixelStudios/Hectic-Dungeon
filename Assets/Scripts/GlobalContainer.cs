@@ -48,7 +48,10 @@ public class GlobalContainer : MonoBehaviour {
         foreach (Transform t in enemies.transform) { YOrder(t); }
         foreach (Transform t in enviro.transform) { YOrder(t); }
         foreach (Transform t in items.transform) { YOrder(t); }
-        YOrder(player.transform);
+
+        Transform ptrans = player.GetComponent<PlayerInfo>().trans;
+        SpriteRenderer psr = player.GetComponent<SpriteRenderer>();
+        psr.sortingOrder = (int)(ptrans.position.y * -100);
         
         
     }

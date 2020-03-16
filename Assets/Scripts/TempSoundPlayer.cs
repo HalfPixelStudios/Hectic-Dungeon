@@ -13,7 +13,7 @@ public class TempSoundPlayer : MonoBehaviour {
 
     void Awake() {
         audio_source = GetComponent<AudioSource>();
-
+        audio_source.volume = 0.5f;
     }
 
     void Update() {

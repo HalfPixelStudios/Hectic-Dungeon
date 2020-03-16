@@ -23,7 +23,7 @@ public class SpikeInteracter : InteractionHandler {
 
     public override void OnInteraction() {
         if (state >= 2) {
-            //KILL PLAYER
+            global.player.GetComponent<PlayerInfo>().PlayerDeath();
         }
     }
 }
