@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static GlobalContainer;
 
 public class PlayerInfo : MonoBehaviour {
 
@@ -36,7 +37,8 @@ public class PlayerInfo : MonoBehaviour {
     public void PlayerDeath() {
         TempSoundPlayer sp = Instantiate(Resources.Load("TempSoundPlayer") as GameObject).GetComponent<TempSoundPlayer>();
         sp.playSound(deathSound);
-        SceneManager.LoadScene("Game Over");
+        Destroy(global.player);
+        //SceneManager.LoadScene("Game Over");
     }
 
 }
