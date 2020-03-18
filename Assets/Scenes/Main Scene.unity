@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 1513541508}
   - component: {fileID: 1513541509}
   - component: {fileID: 1513541510}
+  - component: {fileID: 1513541511}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -492,3 +493,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 3050003728573039972, guid: 2bf0b537e95c9d44f9ad026edc980f25, type: 3}
+--- !u!114 &1513541511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513541507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd5dc10cb0b3db4fa55b03a73d5ee75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

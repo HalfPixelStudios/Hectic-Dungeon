@@ -9,9 +9,11 @@ public class WorldGeneration : MonoBehaviour {
 
     void Start() {
 
+        GameObject floor = new GameObject();
         for (int y = 0; y <= global.grid.height; y++) {
             for (int x = 0; x <= global.grid.width; x++) {
-                Instantiate(tile,global.grid.GridToWorld(x,y),Quaternion.identity);
+                GameObject t = Instantiate(tile,global.grid.GridToWorld(x,y),Quaternion.identity);
+                t.transform.parent = floor.transform;
             }
         }
 
