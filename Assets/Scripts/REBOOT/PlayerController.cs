@@ -28,44 +28,56 @@ public class PlayerController : MonoBehaviour {
         else if (Input.GetButtonDown("Down")) { inp = new Vector2(0, -1); }
         else if (Input.GetButtonDown("Left")) { inp = new Vector2(-1, 0); }
         else if (Input.GetButtonDown("Right")) { inp = new Vector2(1, 0); }
-        if (Input.GetButtonDown("UseItem")) { isAiming = !isAiming; } //toggle aim state
 
+        if (Input.GetButtonDown("UseItem")) {
 
+            isAiming = !isAiming; //toggle aim state
+
+            if (isAiming) {
+                DestroyHighlight();
+                CreateHighlight();
+            } else {
+                DestroyHighlight();
+
+                //kill all enemies hit by attack pattern
+            }
+
+        } 
+
+        //Update
         if (inp != Vector2.zero) {
             facing = inp;
-            if (isAiming) { //aiming state
+            if (isAiming) { //refresh highlights if aiming a different direction
 
-                if (highlight != null) {
-                    foreach (Transform child in highlight.transform) { Destroy(child.gameObject); }
-                    Destroy(highlight);
-                }
-
-                highlight = Highlight.DrawHighlight(Resources.Load("tile_select") as GameObject, "sword", facing, pos);
-
+                DestroyHighlight();
+                CreateHighlight();
 
             } else if (global.grid.IsValidPosition((int)(pos.x + inp.x), (int)(pos.y + inp.y))) { //otherwise, attempt to move player
-
                 pos += inp; //update player position
+
+                //tell game to step because player moved
             }
         }
         
-
         //move player
         gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, global.grid.GridToWorld((int)pos.x, (int)pos.y), move_speed);
 
 
-
-
         //animation stuff
-
-        if (inp.x != 0) {
+        if (inp.x != 0) { //flip player based on aiming direction
             gameObject.GetComponent<SpriteRenderer>().flipX = (inp.x < 0);
         }
 
     }
 
 
-    private void RefreshHighlight() {
-
+    private void DestroyHighlight() {
+        if (highlight != null) {
+            foreach (Transform child in highlight.transform) { Destroy(child.gameObject); }
+            Destroy(highlight);
+        }
+    }
+    private void CreateHighlight() {
+        highlight = Highlight.DrawHighlight(Resources.Load("tile_select") as GameObject, "sword", facing, pos);
     }
 }
