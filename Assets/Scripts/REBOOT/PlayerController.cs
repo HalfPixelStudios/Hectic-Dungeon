@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour {
 
     //position on grid
     Vector2 pos;
+    Vector2 facing = Vector2.zero;
+
+    bool isAiming;
 
     void Start() {
         //determine play spawn position here
@@ -24,11 +27,25 @@ public class PlayerController : MonoBehaviour {
         else if (Input.GetButtonDown("Left")) { inp = new Vector2(-1, 0); }
         else if (Input.GetButtonDown("Right")) { inp = new Vector2(1, 0); }
 
-        //check to see if move is valid
-        if (global.grid.IsValidPosition((int)(pos.x+inp.x),(int)(pos.y+inp.y))) {
-            pos += inp; //update player position
-            this.gameObject.transform.position = Vector2.MoveTowards(this.gameObject.transform.position, global.grid.GridToWorld((int)pos.x,(int)pos.y),move_speed);
+        if (inp != Vector2.zero) {
+            if (isAiming) { //aiming state
+
+            } else if (global.grid.IsValidPosition((int)(pos.x+inp.x),(int)(pos.y+inp.y))) { //otherwise, attempt to move player
+                pos += inp; //update player position
+            }
         }
+
+        //move player
+        gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, global.grid.GridToWorld((int)pos.x, (int)pos.y), move_speed);
+
+        //toggle aim state
+        if (Input.GetButtonDown("UseItem")) { isAiming = !isAiming; }
+
+
+
+        //animation stuff
+        if (inp.x != 0) { facing = inp; }
+        gameObject.GetComponent<SpriteRenderer>().flipX = (facing.x < 0);
 
     }
 }

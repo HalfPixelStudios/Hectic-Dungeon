@@ -18,7 +18,7 @@ public class Grid : MonoBehaviour {
         DrawDebugLines();
     }
     
-    public Vector2 GridToWorld(int x, int y) { //given a point on the grid, return a position vector
+    public Vector3 GridToWorld(int x, int y) { //given a point on the grid, return a position vector
         return (transform.position + new Vector3(x,y,0)*cellSize);
     }
 

@@ -8,8 +8,8 @@ public class Global : MonoBehaviour {
     public Grid grid;
 
 
-    void Start() {
-        global = this.GetComponent<Global>();
+    void Awake() {
+        global = GetComponent<Global>();
     }
 
 }
