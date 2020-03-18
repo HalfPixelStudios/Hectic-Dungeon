@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Global : MonoBehaviour {
 
-    [HideInInspector] public Global global;
+    [HideInInspector] public static Global global;
     public Grid grid;
 
 

@@ -18,18 +18,12 @@ public class Grid : MonoBehaviour {
         DrawDebugLines();
     }
     
-    Vector2 GridToWorld(int x, int y) { //given a point on the grid, return a position vector
+    public Vector2 GridToWorld(int x, int y) { //given a point on the grid, return a position vector
         return (transform.position + new Vector3(x,y,0)*cellSize);
     }
 
-    /*
-    Vector2 WorldToGrid(Vector3 position) {
-
-    }
-    */
-
-    bool IsValidPosition(int x, int y) { 
-        if (x < 0 || x > width-1 || y < 0 || y > height - 1) { return false; } //is off the grid
+    public bool IsValidPosition(int x, int y) { 
+        if (x < 0 || x > width || y < 0 || y > height) { return false; } //is off the grid
 
         //insert check to see if any collisions are present
 
