@@ -74,9 +74,12 @@ public class EnemyAI : MonoBehaviour
 
     bool checkValid(float x,float y)
     {
+        
+        
         int posX = (int) (x - 1.5f);
         int posY = -(int) (y + 1.5f);
-        return (0 <= posX && posX < 13)&&(0 <= posY && posY < 14)&&global.tiles[posY][posX] == 1;
+
+        return (1 <= posX && posX < 12)&&(1 <= posY && posY < 12)&&global.tiles[posY][posX] == 1;
 
     }
 }
