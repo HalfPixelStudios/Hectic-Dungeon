@@ -35,9 +35,10 @@ public class PlayerController : MonoBehaviour {
 
             if (isAiming) {
                 DestroyHighlight();
-                CreateHighlight();
+                CreateHighlight("tile_select");
             } else {
                 DestroyHighlight();
+                CreateHighlight("tile_attack");
 
                 //kill all enemies hit by attack pattern
             }
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour {
             if (isAiming) { //refresh highlights if aiming a different direction
 
                 DestroyHighlight();
-                CreateHighlight();
+                CreateHighlight("tile_select");
 
             } else if (global.grid.IsValidPosition((int)(pos.x + inp.x), (int)(pos.y + inp.y))) { //otherwise, attempt to move player
                 pos += inp; //update player position
@@ -77,7 +78,7 @@ public class PlayerController : MonoBehaviour {
             Destroy(highlight);
         }
     }
-    private void CreateHighlight() {
-        highlight = Highlight.DrawHighlight(Resources.Load("tile_select") as GameObject, "sword", facing, pos);
+    private void CreateHighlight(string name) {
+        highlight = Highlight.DrawHighlight(Resources.Load(name) as GameObject, "sword", facing, pos);
     }
 }
