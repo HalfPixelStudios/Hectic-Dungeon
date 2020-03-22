@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour {
                 pos += inp; //update player position
 
                 //tell game to step because player moved
+                global.playerWorldStep();
             }
         }
         
