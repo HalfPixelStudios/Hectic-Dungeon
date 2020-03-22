@@ -829,6 +829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 843496449}
   player: {fileID: 594071124}
+  enemies: {fileID: 1284875343}
 --- !u!114 &1513541510
 MonoBehaviour:
   m_ObjectHideFlags: 0

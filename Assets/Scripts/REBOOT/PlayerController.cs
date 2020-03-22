@@ -54,10 +54,11 @@ public class PlayerController : MonoBehaviour {
                 CreateHighlight("tile_select");
 
             } else if (global.grid.IsValidPosition((int)(pos.x + inp.x), (int)(pos.y + inp.y))) { //otherwise, attempt to move player
-                pos += inp; //update player position
 
                 //tell game to step because player moved
                 global.playerWorldStep();
+
+                pos += inp; //update player position
             }
         }
         
