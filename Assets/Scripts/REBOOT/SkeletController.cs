@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using static Global;
 
 public class SkeletController : MonoBehaviour {
 
@@ -23,8 +24,9 @@ public class SkeletController : MonoBehaviour {
         
     }
 
-    private void Astar(Vector2 start,Vector2 target) {
-
+    private List<Vector2> Astar(Vector2 start,Vector2 target) {
+        start = Integerize(start); target = Integerize(target);
+        
         List<Vector2> dirs = new List<Vector2> { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
 
         List<Vector2> visited = new List<Vector2>();
@@ -45,28 +47,37 @@ public class SkeletController : MonoBehaviour {
                     bestnode = t;
                 }
             }
-            cur = bestnode.Item2;
+            cur = Integerize(bestnode.Item2);
             q.Remove(bestnode);
+            visited.Add(cur);
 
             //find valid nodes to travel to
             foreach (Vector2 d in dirs) { //check in four directions
-                Vector2 targetnode = cur + d;
+                Vector2 targetnode = Integerize(cur+d);
+                int node_val = global.grid.ValueAt((int)targetnode.x, (int)targetnode.y);
+
                 //check to see if target node is valid
-
-
+                if (node_val == 0 || visited.Contains(targetnode)) {
+                    continue;
+                }
                 //if it is, append to queue
-                q.Add(new Tuple<int, Vector2>(ManDistance(targetnode,target),targetnode));
-            }
+                q.Add(new Tuple<int, Vector2>(ManDistance(targetnode, target), targetnode));
 
+            }
 
             if (cur == target || q.Count == 0) {
                 break;
             }
 
         }
+        return visited;
     }
 
     private int ManDistance(Vector2 a, Vector2 b) { //returns manhatten distance between two points
         return (int)(Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y));
+    }
+
+    private Vector2 Integerize(Vector2 v) {
+        return new Vector2((int)v.x, (int)v.y);
     }
 }

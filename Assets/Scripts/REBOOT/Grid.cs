@@ -30,6 +30,11 @@ public class Grid : MonoBehaviour {
         return true;
     }
 
+    public int ValueAt(int x, int y) {
+        return grid[x, y];
+    }
+    
+
     void DrawDebugLines() {
         for (int y = 0; y < height+1; y++) {
             for (int x = 0; x < width+1; x++) {
