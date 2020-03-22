@@ -22,7 +22,7 @@ public class Grid : MonoBehaviour {
         return (transform.position + new Vector3(x,y,0)*cellSize);
     }
 
-    public bool IsValidPosition(int x, int y) { 
+    public bool IsValidPosition(int x, int y) { //used for pathfinding
         if (x < 0 || x > width || y < 0 || y > height) { return false; } //is off the grid
 
         //insert check to see if any collisions are present

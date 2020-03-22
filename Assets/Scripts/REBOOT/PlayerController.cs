@@ -82,4 +82,8 @@ public class PlayerController : MonoBehaviour {
     private void CreateHighlight(string name) {
         highlight = Highlight.DrawHighlight(Resources.Load(name) as GameObject, "sword", facing, pos);
     }
+
+
+    //getters
+    public Vector2 GetPos() { return pos; }
 }

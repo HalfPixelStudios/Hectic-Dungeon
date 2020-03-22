@@ -5,23 +5,13 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using static Global;
 
-public class SkeletController : MonoBehaviour {
+public class SkeletController : EnemyController {
 
     private static int MAX_ITERS = 1000; //max number of loops for pathfinding algorithm
 
-    //user defined vars
-    [Range(0f, 1f)] public float move_speed;
-
-    //position on grid
-    Vector2 pos;
-    Vector2 facing = Vector2.up;
-
-    void Start() {
-
-    }
-
-    void Update() {
-        
+    public override void Move() {
+        List<Vector2> path = Astar(pos,global.player.GetComponent<PlayerController>().GetPos());
+        pos = path[1];
     }
 
     private List<Vector2> Astar(Vector2 start,Vector2 target) {
@@ -54,18 +44,20 @@ public class SkeletController : MonoBehaviour {
             //find valid nodes to travel to
             foreach (Vector2 d in dirs) { //check in four directions
                 Vector2 targetnode = Integerize(cur+d);
-                int node_val = global.grid.ValueAt((int)targetnode.x, (int)targetnode.y);
 
                 //check to see if target node is valid
-                if (node_val == 0 || visited.Contains(targetnode)) {
-                    continue;
-                }
+                if (!global.grid.IsValidPosition((int)targetnode.x, (int)targetnode.y)) { continue; }
+                if (visited.Contains(targetnode)) { continue; }
+
                 //if it is, append to queue
                 q.Add(new Tuple<int, Vector2>(ManDistance(targetnode, target), targetnode));
 
             }
 
-            if (cur == target || q.Count == 0) {
+            if (cur == target) {
+                break;
+            }
+            if (q.Count == 0) {
                 break;
             }
 
